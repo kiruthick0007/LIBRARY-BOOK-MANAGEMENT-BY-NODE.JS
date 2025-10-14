@@ -1,0 +1,149 @@
+/* 🎨 Global Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8fafc;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #1e293b;
+}
+
+button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  margin: 5px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+/* 🧾 Form Styles */
+.book-form, .auth-page form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  padding: 20px;
+  width: 320px;
+  margin: 15px auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-form input, .auth-page input {
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #cbd5e1;
+  outline: none;
+  font-size: 14px;
+}
+
+.book-form input:focus, .auth-page input:focus {
+  border-color: #2563eb;
+}
+
+/* 📚 Book List Styles */
+.book-list {
+  width: 80%;
+  margin: 20px auto;
+  overflow-x: auto;
+}
+
+.book-list table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.book-list th, .book-list td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.book-list th {
+  background-color: #f1f5f9;
+  color: #1e293b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.book-list td button {
+  font-size: 13px;
+  padding: 6px 10px;
+}
+
+/* 👤 Auth Pages */
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.auth-page h2 {
+  margin-bottom: 20px;
+  color: #1e3a8a;
+}
+
+.auth-page p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.auth-page a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-page a:hover {
+  text-decoration: underline;
+}
+
+/* 🔝 Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.header span {
+  margin-right: 10px;
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  .book-list table, .book-list th, .book-list td {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .book-form, .auth-page form {
+    width: 90%;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header button {
+    margin-top: 10px;
+  }
+}
