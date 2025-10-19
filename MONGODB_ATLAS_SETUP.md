@@ -1,3 +1,21 @@
+## Your MongoDB Atlas Connection String
+
+**Raw connection string from Atlas**:
+```
+mongodb+srv://library:<db_password>@cluster.mogckr0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster
+```
+
+**Formatted for your app** (replace `<db_password>` with your actual password):
+```
+mongodb+srv://library:YOUR_ACTUAL_PASSWORD@cluster.mogckr0.mongodb.net/library-management?retryWrites=true&w=majority&appName=Cluster
+```
+
+**Key changes made**:
+1. Replace `<db_password>` with your actual database user password
+2. Added `/library-management` as the database name (before the `?`)
+
+---
+
 # MongoDB Atlas Setup Guide
 
 Since your project uses local MongoDB, you need to migrate to MongoDB Atlas for cloud deployment.
