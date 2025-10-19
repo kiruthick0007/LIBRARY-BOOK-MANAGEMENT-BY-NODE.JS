@@ -8,9 +8,15 @@
 
 ### 1. Set Up MongoDB Atlas
 1. Go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-2. Create a free cluster
-3. Create a database user
-4. Get your connection string (Format: `mongodb+srv://username:password@cluster.mongodb.net/library`)
+2. Create a free cluster (M0 tier)
+3. Create a database user with read/write access
+4. Whitelist IP address: `0.0.0.0/0` (required for Render)
+5. Get your connection string:
+   - Format: `mongodb+srv://username:password@cluster.mongodb.net/library-management`
+   - Replace `<password>` with actual password
+   - Add database name: `/library-management`
+
+📖 **Detailed MongoDB Atlas guide**: See [`MONGODB_ATLAS_SETUP.md`](MONGODB_ATLAS_SETUP.md)
 
 ### 2. Deploy Backend (Web Service)
 
@@ -31,8 +37,9 @@
    ```
    NODE_ENV=production
    PORT=5000
-   MONGO_URI=your_mongodb_atlas_connection_string
+   MONGODB_URI=your_mongodb_atlas_connection_string
    JWT_SECRET=your_random_secret_key_here
+   JWT_EXPIRE=7d
    ```
 
 5. Click "Create Web Service"
@@ -73,8 +80,9 @@ Your frontend will use the environment variable to connect to the backend.
 ```env
 NODE_ENV=production
 PORT=5000
-MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/library
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/library-management
 JWT_SECRET=your_super_secret_jwt_key_change_this
+JWT_EXPIRE=7d
 ```
 
 ### Frontend

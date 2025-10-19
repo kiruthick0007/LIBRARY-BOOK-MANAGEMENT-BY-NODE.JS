@@ -3,9 +3,12 @@
 ## 1. MongoDB Atlas Setup
 1. Go to https://www.mongodb.com/cloud/atlas/register
 2. Create free cluster → Choose AWS → Region: US-East
-3. Security → Database Access → Add Database User
+3. Security → Database Access → Add Database User (save password!)
 4. Security → Network Access → Add IP: `0.0.0.0/0` (Allow from anywhere)
-5. Get connection string: `mongodb+srv://<username>:<password>@cluster.mongodb.net/library`
+5. Get connection string: `mongodb+srv://<username>:<password>@cluster.mongodb.net/library-management`
+6. **Replace** `<password>` with actual password and add `/library-management` as database name
+
+📖 **Detailed guide**: See [`MONGODB_ATLAS_SETUP.md`](MONGODB_ATLAS_SETUP.md)
 
 ## 2. Deploy to Render
 
@@ -34,8 +37,9 @@
    ```
    NODE_ENV=production
    PORT=5000
-   MONGO_URI=mongodb+srv://user:pass@cluster.mongodb.net/library
+   MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/library-management
    JWT_SECRET=generate_random_32_char_string
+   JWT_EXPIRE=7d
    ```
 5. Create → Wait for deployment
 6. **Copy backend URL**: e.g., `https://library-backend-xxxx.onrender.com`
