@@ -10,8 +10,8 @@ Add these in Render Dashboard → Backend Service → Environment:
 |--------------|-------|
 | `NODE_ENV` | `production` |
 | `PORT` | `5000` |
-| `MONGODB_URI` | `mongodb+srv://library:YOUR_PASSWORD@cluster.mogckr0.mongodb.net/library-management?retryWrites=true&w=majority&appName=Cluster` |
-| `JWT_SECRET` | `your_random_32_character_secret` |
+| `MONGODB_URI` | `mongodb+srv://library:admin%40123@cluster.mogckr0.mongodb.net/library-management?retryWrites=true&w=majority&appName=Cluster` |
+| `JWT_SECRET` | `b0d54138498cddde45b72ff7c76b246565a0e004415c1ae3e8550c3c82a05a59` |
 | `JWT_EXPIRE` | `7d` |
 
 ## Frontend Environment Variables
@@ -28,29 +28,30 @@ Add these in Render Dashboard → Frontend Static Site → Environment:
 
 ### 1. Replace Placeholders
 
-**MONGODB_URI**: Replace `YOUR_PASSWORD` with your actual MongoDB user password
-- ⚠️ If password has special characters (`@`, `#`, `%`, etc.), URL-encode them
-- Example: `p@ssw0rd!` becomes `p%40ssw0rd%21`
+**MONGODB_URI**: ✅ Already configured with your password (`admin@123` URL-encoded as `admin%40123`)
+- Your connection string is ready to use!
+- The `@` symbol is encoded as `%40` for URL safety
 
-**JWT_SECRET**: Generate a random secret:
-```bash
-node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
-```
+**JWT_SECRET**: ✅ Already generated for you
+- Value: `b0d54138498cddde45b72ff7c76b246565a0e004415c1ae3e8550c3c82a05a59`
+- This is cryptographically secure and ready to use
 
 **VITE_API_URL**: After backend deploys, copy the backend URL and add `/api`
 - Format: `https://library-backend-xxxx.onrender.com/api`
 
 ### 2. Copy-Paste Ready Format
 
-After replacing placeholders, your final values should look like:
+**Your complete backend environment variables**:
 
 ```env
-MONGODB_URI=mongodb+srv://library:MyActualP@ss123@cluster.mogckr0.mongodb.net/library-management?retryWrites=true&w=majority&appName=Cluster
+MONGODB_URI=mongodb+srv://library:admin%40123@cluster.mogckr0.mongodb.net/library-management?retryWrites=true&w=majority&appName=Cluster
 
-JWT_SECRET=a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6
+JWT_SECRET=b0d54138498cddde45b72ff7c76b246565a0e004415c1ae3e8550c3c82a05a59
 
 VITE_API_URL=https://library-backend-abc123.onrender.com/api
 ```
+
+**⚠️ Update `VITE_API_URL`**: After backend deploys, replace with your actual backend URL
 
 ### 3. Deployment Order
 
